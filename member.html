@@ -13,6 +13,7 @@
 				location.href = "forum.html";
 			}
 		</script>
+		<script src="js/member.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 
 	<body>
@@ -78,16 +79,30 @@
 				</div>
 			</div>
 			<!--注册登录-->
-			<nav>
+			<nav id="nav1">
 				<ul>
 					<li style="width:86px;">
 						<div>
 							<a href="">论坛首页</a>
 						</div>
 					</li>
-					<li style="width:86px;">
+					<li style="width:86px;" onmouseover="showDoc(this)" onmouseout="hideDoc(this)" ;>
 						<div>
 							<a href="">文档资料</a>
+						</div>
+						<div id="doc">
+							<ul>
+								<li>
+									<a href="">
+										<div>&nbsp;教程</div>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<div>&nbsp;开发文档</div>
+									</a>
+								</li>
+							</ul>
 						</div>
 					</li>
 					<li style="width:100px;">
@@ -105,14 +120,47 @@
 							<a href="">服务购买</a>
 						</div>
 					</li>
-					<li style="width:86px;">
+					<li style="width:86px;" onmouseover="showDoc1(this)" onmouseout="hideDoc1(this)" ;>
 						<div>
 							<a href="">应用中心</a>
 						</div>
+						<div id="doc1">
+							<ul>
+								<li>
+									<a href="">
+										<div>&nbsp;Discuz！应用中心</div>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<div>&nbsp;Discuz！开发平台</div>
+									</a>
+								</li>
+							</ul>
+						</div>
 					</li>
-					<li style="width:72px;">
+					<li style="width:72px;" onmouseover="showDoc2(this)" onmouseout="hideDoc2(this)" ;>
 						<div>
 							<a href="">微社区</a>
+						</div>
+						<div id="doc2">
+							<ul>
+								<li>
+									<a href="">
+										<div>&nbsp;Discuz！打通版</div>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<div>&nbsp;标准版</div>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<div>&nbsp;本地化部署版(第三方)</div>
+									</a>
+								</li>
+							</ul>
 						</div>
 					</li>
 					<li style="width:86px;">
@@ -121,7 +169,81 @@
 						</div>
 					</li>
 				</ul>
-				<div>快捷导航</div>
+				<div onmouseover="showList(this)" onmouseout="hideList(this)">
+					<a href="">
+						<div>
+							快捷导航
+						</div>
+					</a>
+					<!--快捷导航-->
+					<div id="kjmenu">
+						<div>
+							<div>
+								请
+								<a href="login.html">登录</a> 后使用快捷导航<br>没有帐号？
+								<a href="member.html">立即注册</a>
+							</div>
+						</div>
+						<div>
+							<div class="sousuo">搜索版块: <input type="text"></div>
+							<ul class="sousuobk">
+								<li>
+									<p class="xg1">所有版块</p>
+									<p class="xg2">
+										<a href="">Comsenz 公司动态</a>
+									</p>
+									<p class="xg3">
+										<a href="">Discuz! 程序发布</a>
+									</p>
+									<p class="xg3">
+										<a href="">Discuz! 实验室</a>
+									</p>
+									<p class="xg2">
+										<a href="">Discuz! 交流与讨论</a>
+									</p>
+									<p class="xg3">
+										<a href="">Discuz!-插件</a>
+									</p>
+									<p class="xg3">
+										<a href="">Discuz!-模板</a>
+									</p>
+									<p class="xg3">
+										<a href="">Discuz!-应用中心</a>
+									</p>
+									<p class="xg3">
+										<a href="">Discuz!-安装使用</a>
+									</p>
+									<p class="xg3">
+										<a href="">站长帮</a>
+									</p>
+									<p class="xg3">
+										<a href="">Discuz!-BUG反馈</a>
+									</p>
+									<p class="xg2">
+										<a href="">关联技术专区</a>
+									</p>
+									<p class="xg3">
+										<a href="">PHP技术讨论版</a>
+									</p>
+									<p class="xg3">
+										<a href="">ECShop 交流与讨论</a>
+									</p>
+									<p class="xg3">
+										<a href="">Discuz! 腾讯云</a>
+									</p>
+								</li>
+
+								<li>
+									<p class="xg1">最近浏览</p>
+								</li>
+								<li>
+									<p class="xg1">我的收藏</p>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
 			</nav>
 
 			<div class="search">
@@ -165,7 +287,9 @@
 						<lable for="yqm">邀请码：</lable>
 					</dt>
 					<dd>
-						<input type="text" name="yqm" id="yqm" value="" class="text" />
+						<input type="text" name="yqm" id="yqm" value="" class="text" onfocus="showyqm()" onblur="showtishi()" />
+						<span id="inforyqm">联系QQ:80056365,发送邀请码免费获取</span>
+						<span id="infortishi">抱歉，邀请码错误，请重新填写，没有邀请码不允许注册</span>
 					</dd>
 				</dl>
 				<dl class="dlrow1">
@@ -174,7 +298,9 @@
 						<lable for="username">用户名：</lable>
 					</dt>
 					<dd>
-						<input type="text" name="username" id="username" value="" class="textred" />
+						<input type="text" name="username" id="username" value="" class="textred" onfocus="showyhm()" onblur="yhmtishi()"/>
+						<span id="inforyhm">用户名不得小于 3 个字符</span>
+						<span id="inforyhmts">用户名由3到15个字符组成</span>
 					</dd>
 				</dl>
 				<dl class="dlrow1">
@@ -183,7 +309,8 @@
 						<lable for="mima">密码：</lable>
 					</dt>
 					<dd>
-						<input type="text" name="mima" id="mima" value="" class="text" />
+						<input type="text" name="mima" id="mima" value="" class="text" onfocus="showmima()" onblur="mimatishi()" />
+						<span id="informima">请填写密码, 最小长度为 8 个字符</span>
 					</dd>
 				</dl>
 				<dl class="dlrow1">
@@ -192,7 +319,8 @@
 						<lable for="rmima">确认密码：</lable>
 					</dt>
 					<dd>
-						<input type="text" name="rmima" id="rmima" value="" class="text" />
+						<input type="text" name="rmima" id="rmima" value="" class="text" onfocus="showremima()" onblur="remimatishi()" />
+						<span id="remima">请再次输入密码</span>
 					</dd>
 				</dl>
 				<dl class="dlrow1">
@@ -201,7 +329,9 @@
 						<lable for="email">Email：</lable>
 					</dt>
 					<dd>
-						<input type="text" name="email" id="email" value="" class="text" />
+						<input type="text" name="email" id="email" value="" class="text" onfocus="showemail()" onblur="emailtishi()" />
+						<span id="temail">请输入正确的邮箱地址</span>
+						<span id="inforemail">请输入邮箱地址</span>
 					</dd>
 				</dl>
 				<dl class="dlrow2">
@@ -222,7 +352,8 @@
 					<dd>
 						<input type="submit" name="tj" id="tj" value="提交" class="tijiao" />
 						<input type="checkbox" name="agree" id="agree" checked class="gouxuan" />
-						<lable for="tiaokuan">同意</lable><a href="" name="tiaokuan" id="tiaokuan">网站服务条款</a>
+						<lable for="tiaokuan">同意</lable>
+						<a href="" name="tiaokuan" id="tiaokuan">网站服务条款</a>
 					</dd>
 				</dl>
 				<dl class="dlrow4">
@@ -264,7 +395,8 @@
 							</li>
 							<li style="width:190px;border: none;">
 								<div>
-									<a href="">Comsenz</a><a href=""> ( 粤B2-20090059-165 )</a>
+									<a href="">Comsenz</a>
+									<a href=""> ( 粤B2-20090059-165 )</a>
 								</div>
 							</li>
 							<li style="border: none;">

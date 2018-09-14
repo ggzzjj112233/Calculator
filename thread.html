@@ -5,6 +5,7 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/thread.css" />
+		<script src="js/thread.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 
 	<body>
@@ -70,16 +71,30 @@
 				</div>
 			</div>
 			<!--注册登录-->
-			<nav>
+			<nav id="nav1">
 				<ul>
 					<li style="width:86px;">
 						<div>
 							<a href="">论坛首页</a>
 						</div>
 					</li>
-					<li style="width:86px;">
+					<li style="width:86px;" onmouseover="showDoc(this)" onmouseout="hideDoc(this)" ;>
 						<div>
 							<a href="">文档资料</a>
+						</div>
+						<div id="doc">
+							<ul>
+								<li>
+									<a href="">
+										<div>&nbsp;教程</div>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<div>&nbsp;开发文档</div>
+									</a>
+								</li>
+							</ul>
 						</div>
 					</li>
 					<li style="width:100px;">
@@ -97,14 +112,47 @@
 							<a href="">服务购买</a>
 						</div>
 					</li>
-					<li style="width:86px;">
+					<li style="width:86px;" onmouseover="showDoc1(this)" onmouseout="hideDoc1(this)" ;>
 						<div>
 							<a href="">应用中心</a>
 						</div>
+						<div id="doc1">
+							<ul>
+								<li>
+									<a href="">
+										<div>&nbsp;Discuz！应用中心</div>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<div>&nbsp;Discuz！开发平台</div>
+									</a>
+								</li>
+							</ul>
+						</div>
 					</li>
-					<li style="width:72px;">
+					<li style="width:72px;" onmouseover="showDoc2(this)" onmouseout="hideDoc2(this)" ;>
 						<div>
 							<a href="">微社区</a>
+						</div>
+						<div id="doc2">
+							<ul>
+								<li>
+									<a href="">
+										<div>&nbsp;Discuz！打通版</div>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<div>&nbsp;标准版</div>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<div>&nbsp;本地化部署版(第三方)</div>
+									</a>
+								</li>
+							</ul>
 						</div>
 					</li>
 					<li style="width:86px;">
@@ -113,7 +161,81 @@
 						</div>
 					</li>
 				</ul>
-				<div>快捷导航</div>
+				<div onmouseover="showList(this)" onmouseout="hideList(this)">
+					<a href="">
+						<div>
+							快捷导航
+						</div>
+					</a>
+					<!--快捷导航-->
+					<div id="kjmenu">
+						<div>
+							<div>
+								请
+								<a href="login.html">登录</a> 后使用快捷导航<br>没有帐号？
+								<a href="member.html">立即注册</a>
+							</div>
+						</div>
+						<div>
+							<div class="sousuo">搜索版块: <input type="text"></div>
+							<ul class="sousuobk">
+								<li>
+									<p class="xg1">所有版块</p>
+									<p class="xg2">
+										<a href="">Comsenz 公司动态</a>
+									</p>
+									<p class="xg3">
+										<a href="">Discuz! 程序发布</a>
+									</p>
+									<p class="xg3">
+										<a href="">Discuz! 实验室</a>
+									</p>
+									<p class="xg2">
+										<a href="">Discuz! 交流与讨论</a>
+									</p>
+									<p class="xg3">
+										<a href="">Discuz!-插件</a>
+									</p>
+									<p class="xg3">
+										<a href="">Discuz!-模板</a>
+									</p>
+									<p class="xg3">
+										<a href="">Discuz!-应用中心</a>
+									</p>
+									<p class="xg3">
+										<a href="">Discuz!-安装使用</a>
+									</p>
+									<p class="xg3">
+										<a href="">站长帮</a>
+									</p>
+									<p class="xg3">
+										<a href="">Discuz!-BUG反馈</a>
+									</p>
+									<p class="xg2">
+										<a href="">关联技术专区</a>
+									</p>
+									<p class="xg3">
+										<a href="">PHP技术讨论版</a>
+									</p>
+									<p class="xg3">
+										<a href="">ECShop 交流与讨论</a>
+									</p>
+									<p class="xg3">
+										<a href="">Discuz! 腾讯云</a>
+									</p>
+								</li>
+
+								<li>
+									<p class="xg1">最近浏览</p>
+								</li>
+								<li>
+									<p class="xg1">我的收藏</p>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
 			</nav>
 
 			<div class="search">
@@ -208,11 +330,11 @@
 					</tbody>
 				</table>
 				<div class="up">
-					<table border="0" cellspacing="0" cellpadding="0">
+					<table border="0" cellspacing="0" cellpadding="0" id="table1">
 						<tbody>
 							<tr>
 								<td>
-									<div>
+									<div id="touxiang">
 										<div>
 											<div>
 												<a href="" style="font-weight: 700;color: #333;">Apache.up</a>
@@ -454,7 +576,8 @@
 							</li>
 							<li style="width:190px;border: none;">
 								<div>
-									<a href="">Comsenz</a><a href=""> ( 粤B2-20090059-165 )</a>
+									<a href="">Comsenz</a>
+									<a href=""> ( 粤B2-20090059-165 )</a>
 								</div>
 							</li>
 							<li style="border: none;">
