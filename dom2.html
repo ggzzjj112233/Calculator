@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			table {
+				width: 95%;
+				border: 1px solid black;
+				border-collapse: collapse;
+				margin: 0 auto;
+			}
+			
+			table tr {
+				height: 30px;
+			}
+			
+			table tr>td {
+				border: 1px solid black;
+				text-align: center;
+			}
+		</style>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var Table = function(tr, td) {
+				this.tr = tr;
+				this.td = td;
+				this.getTable = function() {
+					var html = '<table id="table1">';
+					for(var i = 0; i < this.tr; i++) {
+						html += '<tr>';
+						for(var j = 0; j < this.td; j++) {
+							html += '<td></td>';
+						}
+						html += '</tr>';
+					}
+					html += '</table>';
+					return html;
+				}
+			}
+			var td=null;
+			var index=0;
+			
+			$(document).ready(function(){
+				var table = new Table(30, 40);
+				$("#div1").html(table.getTable());
+				td=$('table').find('tbody').find('tr').first().find('td').first();
+				td.css('background','red');
+			})
+			
+			$(document).keydown(function(e){
+				td.css('background','white');
+				var key = e.keyCode;
+				switch(key) {
+					case 37:
+						if(td.prev().is('td')){
+							td=td.prev();
+							index--;
+						}else{
+							td=td.siblings().last();
+							index=td.siblings().length;
+						}
+						break;
+					case 38:
+						if(td.parent().prev().is('tr')){
+							td=td.parent().prev().find('td').eq(index);
+						}else{
+							td=td.parent().siblings().last().find('td').eq(index);
+						}
+						break;
+					case 39:
+						if(td.next().is('td')){
+							td=td.next();
+							index++;
+						}else{
+							td=td.siblings().first();
+							index=0;
+						}
+						break;
+					case 40:
+						if(td.parent().next().is('tr')){
+							td=td.parent().next().find('td').eq(index);
+						}else{
+							td=td.parent().siblings().first().find('td').eq(index);
+						}
+						break;
+				}
+				td.css('background','red');
+			})
+			
+		</script>
+	</head>
+
+	<body>
+		<div id="div1"></div>
+	</body>
+
+</html>
